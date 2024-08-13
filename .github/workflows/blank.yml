@@ -14,6 +14,10 @@ jobs:
         env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:login 
+      - name: Set Heroku stack to container
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku stack:set container --app happyu
       - name: Build and Push Docker Image
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
